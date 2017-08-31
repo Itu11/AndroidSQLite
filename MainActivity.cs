@@ -13,6 +13,7 @@ namespace AndroidSQLite
     [Activity(Label = "AndroidSQLite", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+       
         ListView lstData;
         List<Person> lstSource = new List<Person>();
         DataBase db;
@@ -38,6 +39,7 @@ namespace AndroidSQLite
             var btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
             var btnEdit = FindViewById<Button>(Resource.Id.btnEdit);
             var btnDelete = FindViewById<Button>(Resource.Id.btnDelete);
+            var button1 = FindViewById<Button>(Resource.Id.button1); 
 
             //LoadData
             LoadData();
@@ -53,6 +55,14 @@ namespace AndroidSQLite
                 db.insertIntoTablePerson(person);
                 LoadData();
             };
+            button1.Click +=delegate
+             {
+                 edtName.Text = "kokoo";
+                 edtAge.Text = "12";
+                 edtEmail.Text = "echo@dlata.com";
+
+
+             };
 
             btnEdit.Click += delegate {
                 Person person = new Person()
